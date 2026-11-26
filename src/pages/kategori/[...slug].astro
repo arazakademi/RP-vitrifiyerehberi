@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { kategoriler, type Kategori, type AltKategori } from '../../data/kategoriler';
+import { tumYazilar } from '../../lib';
+
+export function getStaticPaths() {
+  return kategoriler.flatMap((k) => [
+    { params: { slug: k.slug }, props: { ana: k, alt: undefined } },
+    ...k.alt.map((a) => ({ params: { slug: `${k.slug}/${a.slug}` }, props: { ana: k, alt: a } })),
+  ]);
+}
+
+interface Props { ana: Kategori; alt?: AltKategori }
+const { ana, alt } = Astro.props;
+const aktif = alt ?? ana;
+const yazilar = (await tumYazilar()).filter((y) => y.data.kategori === ana.slug && (!alt || y.data.altKategori === alt.slug));
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Ana sayfa', item: 'https://vitrifiyerehberi.com/' },
+    { '@type': 'ListItem', position: 2, name: ana.ad, item: `https://vitrifiyerehberi.com/kategori/${ana.slug}` },
+    ...(alt ? [{ '@type': 'ListItem', position: 3, name: alt.ad, item: `https://vitrifiyerehberi.com/kategori/${ana.slug}/${alt.slug}` }] : []),
+  ],
+};
+---
+<Base title={`${aktif.ad} rehberleri`} description={aktif.aciklama} jsonld={[breadcrumb]}>
+  <section class="cat-head">
+    <div class="wrap">
+      <p class="eyebrow"><a href="/">Ana sayfa</a> › {alt ? <><a href={`/kategori/${ana.slug}`}>{ana.ad}</a> › {alt.ad}</> : ana.ad}</p>
+      <h1>{aktif.ad}</h1>
+      <p class="lede">{aktif.aciklama}</p>
+      {!alt && (
+        <ul class="chips">
+          {ana.alt.map((a) => <li><a href={`/kategori/${ana.slug}/${a.slug}`}>{a.ad}</a></li>)}
+        </ul>
+      )}
+    </div>
+  </section>
+  <div class="wrap">
+    <h2 class="section-title">Yazılar</h2>
+    {yazilar.length ? (
+      <div class="post-grid">{yazilar.map((y) => <PostCard yazi={y} />)}</div>
+    ) : (
+      <p class="empty">Bu kategoride henüz yazı yok. İlk rehber hazırlanıyor.</p>
+    )}
+  </div>
+</Base>

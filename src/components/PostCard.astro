@@ -1,0 +1,14 @@
+---
+import { kategoriEtiketi, tarihTR, okumaSuresi, type Yazi } from '../lib';
+interface Props { yazi: Yazi }
+const { yazi } = Astro.props;
+const { metin } = kategoriEtiketi(yazi);
+---
+<article class="card">
+  <a href={`/yazi/${yazi.id}`}>
+    <div class="thumb"><img src={yazi.data.gorsel} alt={yazi.data.gorselAlt} loading="lazy" decoding="async" width="1200" height="900" /></div>
+    <p class="eyebrow">{metin} · {tarihTR(yazi.data.tarih)}</p>
+    <h3>{yazi.data.baslik}</h3>
+    <p class="meta">{okumaSuresi(yazi.body)} dk okuma</p>
+  </a>
+</article>

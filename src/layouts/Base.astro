@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import { kategoriler } from '../data/kategoriler';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+  jsonld?: object[];
+}
+
+const SITE = 'Vitrifiye Rehberi';
+const { title, description, image, type = 'website', jsonld = [] } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ''), Astro.site).href;
+const ogImage = image ? new URL(image, Astro.site).href : undefined;
+const fullTitle = title === SITE ? `${SITE} — Klozet, lavabo ve banyo seramiği rehberleri` : `${title} | ${SITE}`;
+
+const ortak = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE,
+    url: 'https://vitrifiyerehberi.com',
+    email: 'info@vitrifiyerehberi.com',
+    description: 'Klozet, lavabo, rezervuar ve banyo seramiği üzerine editoryal bir rehber.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE,
+    url: 'https://vitrifiyerehberi.com',
+    inLanguage: 'tr',
+  },
+];
+---
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:site_name" content={SITE} />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    {[...ortak, ...jsonld].map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#main">İçeriğe atla</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="logo" href="/">vitrifiye <span>rehberi</span></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menü</button>
+        <nav class="nav" id="nav" aria-label="Kategoriler">
+          {kategoriler.map((k) => (
+            <div class="nav-item">
+              <a href={`/kategori/${k.slug}`}>{k.ad}</a>
+              <div class="nav-drop">
+                <a class="all" href={`/kategori/${k.slug}`}>Tüm {k.ad.toLocaleLowerCase('tr')}</a>
+                {k.alt.map((a) => <a href={`/kategori/${k.slug}/${a.slug}`}>{a.ad}</a>)}
+              </div>
+            </div>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <a class="logo" href="/">vitrifiye <span>rehberi</span></a>
+            <p>Klozet, lavabo, rezervuar ve banyo seramiği üzerine editoryal bir rehber: ölçü, montaj, hijyen ve bakım.</p>
+          </div>
+          {kategoriler.map((k) => (
+            <div>
+              <h2><a href={`/kategori/${k.slug}`}>{k.ad}</a></h2>
+              <ul>
+                {k.alt.map((a) => <li><a href={`/kategori/${k.slug}/${a.slug}`}>{a.ad}</a></li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p class="copy">© {new Date().getFullYear()} Vitrifiye Rehberi · vitrifiyerehberi.com · info@vitrifiyerehberi.com</p>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.querySelector('.menu-btn');
+      const nav = document.getElementById('nav');
+      btn?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(!!open));
+      });
+    </script>
+  </body>
+</html>

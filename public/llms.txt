@@ -1,0 +1,19 @@
+# Vitrifiye Rehberi
+
+> Vitrifiye Rehberi; klozet, rezervuar ve lavabo seçimi için bağımsız editör ekibi tarafından hazırlanan satın alma rehberleri yayınlar. Her rehber ölçü, montaj, uyumluluk ve kullanım kriterlerini adım adım anlatır.
+
+## Klozet ve Rezervuarlar
+
+- [Asma Klozet Nasıl Seçilir? Satın Alma Rehberi](https://vitrifiyerehberi.com/yazi/asma-klozet-nasil-secilir-satin-alma-rehberi): Asma klozet alırken gömme rezervuar, derinlik, kanalsız yıkama, taharet bağlantısı ve kapak nasıl seçilir? Perla, Terra, Free, Elegant, Ness ve Antik üzerinden rehber.
+- [Gömme Rezervuar ve Kumanda Paneli Nasıl Seçilir? Satın Alma Rehberi](https://vitrifiyerehberi.com/yazi/gomme-rezervuar-ve-kumanda-paneli-nasil-secilir-satin-alma-rehberi): Gömme rezervuarda duvar tipi, yükseklik, saplama ekseni ve taşıma kapasitesi; kumanda panelinde seri, buton ve renk nasıl seçilir? Creavit örnekleriyle.
+- [Klozet Kapağı Nasıl Seçilir? Satın Alma Rehberi](https://vitrifiyerehberi.com/yazi/klozet-kapagi-nasil-secilir-satin-alma-rehberi): Yedek klozet kapağı alırken uyumluluk, ölçü, duroplast-thermoplast farkı, menteşe ve yavaş kapanma nasıl değerlendirilir? Duck, Elegant, Çınar, Lara ve Tefen üzerinden.
+- [Rezervuar İç Takımı Nasıl Seçilir? Satın Alma Rehberi](https://vitrifiyerehberi.com/yazi/rezervuar-ic-takimi-nasil-secilir-satin-alma-rehberi): Sızdıran ya da geç dolan rezervuarda hangi parça bozuk, tek mi çift basmalı mı, start-stop ne işe yarar? Creavit IT1060, IT1022 ve IT5112 üzerinden iç takım rehberi.
+- [Takım Klozet Nasıl Seçilir? Satın Alma Rehberi](https://vitrifiyerehberi.com/yazi/takim-klozet-nasil-secilir-satin-alma-rehberi): Takım klozet alırken ölçü, kanalsız yıkama, rezervuar hacmi, kapak formu ve kullanıcı ihtiyacı nasıl değerlendirilir? Lara, Nova, Mare, Solo, Grande ve Ducky üzerinden.
+
+## Lavabolar
+
+- [Ayaklı Lavabo Nasıl Seçilir? Satın Alma Rehberi](https://vitrifiyerehberi.com/yazi/ayakli-lavabo-nasil-secilir-satin-alma-rehberi): Ayaklı lavabo alırken ayak tipi, kullanıcıya göre yükseklik, sifonun görünürlüğü, sabitleme ve armatür deliği nasıl değerlendirilir? Creavit Antik ve Ducky üzerinden rehber.
+- [Çanak Lavabo Nasıl Seçilir? Satın Alma Rehberi](https://vitrifiyerehberi.com/yazi/canak-lavabo-nasil-secilir-satin-alma-rehberi): Çanak lavabo alırken ölçü, kenar yüksekliği, batarya deliği, taşma deliği ve renk nasıl değerlendirilir? Loop, Ultra ve Gen-Z üzerinden adım adım rehber.
+- [Etajerli Lavabo Nasıl Seçilir? Satın Alma Rehberi](https://vitrifiyerehberi.com/yazi/etajerli-lavabo-nasil-secilir-satin-alma-rehberi): Etajerli lavabo alırken dolap ölçüsü, derinlik, dolap üstü ya da konsol ayaklı montaj, armatür ve taşma deliği nasıl seçilir? Creavit Su, Antik ve Memory üzerinden.
+- [Tezgah Altı Lavabo Nasıl Seçilir? Satın Alma Rehberi](https://vitrifiyerehberi.com/yazi/tezgah-alti-lavabo-nasil-secilir-satin-alma-rehberi): Tezgah altı lavabo alırken hazne ve dış ölçü, tezgah kesimi, form, batarya yeri, taşma deliği ve tezgah yüksekliği nasıl planlanır? Creavit Solo ve TP serisi üzerinden.
+- [Tezgah Üstü Lavabo Nasıl Seçilir? Satın Alma Rehberi](https://vitrifiyerehberi.com/yazi/tezgah-ustu-lavabo-nasil-secilir-satin-alma-rehberi): Tezgah üstü lavabo alırken çanak lavabodan farkı, ölçü, armatür deliği, taşma deliği ve form nasıl değerlendirilir? Creavit Next, Free, Topic ve Elmas üzerinden rehber.

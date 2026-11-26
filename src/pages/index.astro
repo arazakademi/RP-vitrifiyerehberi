@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import { kategoriler } from '../data/kategoriler';
+import { tumYazilar } from '../lib';
+const yazilar = await tumYazilar();
+---
+<Base title="Vitrifiye Rehberi" description="Klozet, lavabo, rezervuar ve banyo seramiği üzerine editoryal rehber: ölçü, montaj, hijyen ve bakım yazıları.">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Banyo seramiği üzerine editoryal yayın</p>
+      <h1>Klozetten lavaboya, banyoda doğru vitrifiyeyi seçmek için rehberler</h1>
+      <p class="lede">Her yazı gerçek bir ürünle başlıyor: ölçüsüne, montajına, temizliğine bakıyoruz ve banyonuza uyup uymayacağını sade bir dille anlatıyoruz. Yazıları klozet ve lavabo türlerine göre topluyoruz.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cat-grid">
+      {kategoriler.map((k) => (
+        <section class="cat-card">
+          <h2><a href={`/kategori/${k.slug}`}>{k.ad}</a></h2>
+          <p>{k.aciklama}</p>
+          <ul class="chips">
+            {k.alt.map((a) => <li><a href={`/kategori/${k.slug}/${a.slug}`}>{a.ad}</a></li>)}
+          </ul>
+        </section>
+      ))}
+    </div>
+
+    <h2 class="section-title">Son yazılar</h2>
+    <div class="post-grid">
+      {yazilar.map((y) => <PostCard yazi={y} />)}
+    </div>
+  </div>
+</Base>
