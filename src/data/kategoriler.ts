@@ -91,6 +91,39 @@ export const kategoriler: Kategori[] = [
       },
     ],
   },
+  {
+    slug: 'banyo-mobilyalari',
+    ad: 'Banyo Mobilyaları',
+    aciklama:
+      'Banyo dolabı setleri, lavabo dolapları, aynalı üst dolaplar ve boy dolapları: ölçü, malzeme ve depolama ihtiyacına göre banyo mobilyası seçimi.',
+    creavit: C + 'banyo-dolap-setleri',
+    alt: [
+      {
+        slug: 'banyo-dolabi-seti',
+        ad: 'Banyo Dolabı Setleri',
+        aciklama: 'Lavabo, alt dolap ve aynanın birlikte geldiği setler: genişlik, renk ve takım uyumu rehberleri.',
+        creavit: C + 'banyo-dolap-setleri',
+      },
+      {
+        slug: 'lavabo-dolabi',
+        ad: 'Lavabo Dolapları',
+        aciklama: 'Lavabo alt dolapları: genişlik, çekmece ya da kapak tipi ve neme dayanıklılık rehberleri.',
+        creavit: C + 'lavabo-dolaplari',
+      },
+      {
+        slug: 'ayna-ve-ust-dolap',
+        ad: 'Ayna ve Üst Dolaplar',
+        aciklama: 'Banyo aynası, aydınlatmalı ayna ve aynalı üst dolap seçimi için rehberler.',
+        creavit: C + 'ust-dolap-ve-aynalar',
+      },
+      {
+        slug: 'boy-dolabi',
+        ad: 'Boy Dolapları',
+        aciklama: 'Dar banyolar için boy dolapları: ölçü, raf düzeni ve takım uyumu rehberleri.',
+        creavit: C + 'banyo-boy-dolabi-modelleri',
+      },
+    ],
+  },
 ];
 
 export function kategoriBul(slug: string) {
